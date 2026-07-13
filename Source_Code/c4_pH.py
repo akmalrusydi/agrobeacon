@@ -3,7 +3,7 @@ import adafruit_ads1x15.ads1115 as ADS
 from adafruit_ads1x15.analog_in import AnalogIn
 
 # =========================================================
-# CONFIGURATION / CALIBRATION DATA (Disesuaikan untuk pH 5V, ADS 3.3V)
+# CONFIGURATION / CALIBRATION DATA
 # =========================================================
 PH_SLOPE = -19.67    
 PH_OFFSET = 38.96   
@@ -16,10 +16,7 @@ def get_smoothed_voltage(ph_sensor, samples=10):
     return total_voltage / samples
 
 def read_ph(ads):
-    """
-    Menerima objek 'ads' daripada RunAll.py
-    Membaca nilai pH pada Channel 1 (A1).
-    """
+
     try:
         ph_sensor = AnalogIn(ads, 1)
         voltage = get_smoothed_voltage(ph_sensor, samples=10)
