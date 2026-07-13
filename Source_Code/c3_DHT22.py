@@ -108,11 +108,10 @@ def read_dht():
         # =================================================
 
         except RuntimeError as error:
-
-            print(
-                "DHT Runtime Error:",
-                error
-            )
+            # Cuma cetak ralat, tak perlu reset hardware yang memakan masa sleep(2)
+            print("DHT Runtime Error:", error)
+            return last_data
+            
 
             # =============================================
             # RESET SENSOR
